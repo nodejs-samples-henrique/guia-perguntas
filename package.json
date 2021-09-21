@@ -1,0 +1,23 @@
+{
+  "name": "guia-perguntas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/curso-nodejs-udemy/guia-perguntas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/curso-nodejs-udemy/guia-perguntas/issues"
+  },
+  "homepage": "https://github.com/curso-nodejs-udemy/guia-perguntas#readme",
+  "devDependencies": {
+    "git-commit-msg-linter": "^3.2.8"
+  }
+}
