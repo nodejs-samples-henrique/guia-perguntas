@@ -19,5 +19,8 @@
   "homepage": "https://github.com/curso-nodejs-udemy/guia-perguntas#readme",
   "devDependencies": {
     "git-commit-msg-linter": "^3.2.8"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
   }
 }
