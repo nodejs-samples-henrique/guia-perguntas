@@ -15,14 +15,15 @@
                     <h3>Realizar pergunta</h3>
                 </div>
                 <div class="card-body">
-                    <form action="#">
+                    <form action="/criarpergunta" method="POST">
                         <div class="mb-3">
                             <label>Titulo</label>
-                            <input type="text" placeholder="Titulo" class="form-control" />
+                            <input type="text" placeholder="Titulo" class="form-control" name="title" />
                         </div>
                         <div class="mb-3">
                             <label>Descrição</label>
-                            <textarea placeholder="Descreva sua pergunta" class="form-control"></textarea>
+                            <textarea placeholder="Descreva sua pergunta" class="form-control"
+                                name="description"></textarea>
                         </div>
                         <button class="btn btn-success">Perguntar</button>
                     </form>
@@ -32,4 +33,5 @@
         </div>
 </body>
 <%- include ('partials/scripts') %>
+
 </html>
