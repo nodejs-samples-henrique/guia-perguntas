@@ -1,5 +1,6 @@
 const express = require("express")
 const app = express()
+const Question = require('./database/Question')
 
 // EJS as View Engine
 app.set('view engine', 'ejs')
@@ -18,7 +19,10 @@ app.get("/perguntar", (req, res) => {
 })
 
 app.post("/criarpergunta", (req, res) => {
-        res.send("Formulario recebido! Titulo:" + req.body.title + " Descricao: " + req.body.description)
+  
+    Question.create({ title: req.body.title, desc: req.body.description }).then(() => {
+        res.redirect("/")
+    })
 })
 
 app.listen(8080, () => {
