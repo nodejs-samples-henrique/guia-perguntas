@@ -7,11 +7,16 @@ app.set('view engine', 'ejs')
 
 app.use(express.static('public'))
 app.use(express.json())
-app.use(express.urlencoded({extended: false}))
+app.use(express.urlencoded({ extended: false }))
 
 
 app.get("/", (req, res) => {
-    res.render("index")
+    Question.findAll({ raw: true }).then((questions) => {
+        res.render("index", {
+            questions: questions
+        })
+    })
+    
 })
 
 app.get("/perguntar", (req, res) => {
@@ -19,7 +24,7 @@ app.get("/perguntar", (req, res) => {
 })
 
 app.post("/criarpergunta", (req, res) => {
-  
+
     Question.create({ title: req.body.title, desc: req.body.description }).then(() => {
         res.redirect("/")
     })
