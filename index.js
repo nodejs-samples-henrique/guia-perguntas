@@ -9,21 +9,34 @@ app.use(express.static('public'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-
 app.get("/", (req, res) => {
     Question.findAll({
         raw: true, order: [
-        ['id', 'DESC']
-    ] }).then((questions) => {
+            ['id', 'DESC']
+        ]
+    }).then((questions) => {
         res.render("index", {
             questions: questions
         })
     })
-    
 })
 
 app.get("/perguntar", (req, res) => {
     res.render("ask")
+})
+
+app.get("/pergunta/:id", (req, res) => {
+    Question.findOne({
+        where: { id: req.params.id }
+    }).then((question) => {
+        if (question != undefined) {
+            res.render("question", {
+                question: question
+            })
+        } else {
+            res.redirect("/")
+        }
+    })
 })
 
 app.post("/criarpergunta", (req, res) => {
