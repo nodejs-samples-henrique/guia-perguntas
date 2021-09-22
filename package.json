@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/curso-nodejs-udemy/guia-perguntas#readme",
   "devDependencies": {
-    "git-commit-msg-linter": "^3.2.8"
+    "git-commit-msg-linter": "^3.2.8",
+    "sequelize-cli": "^6.2.0"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
