@@ -14,6 +14,12 @@
             <h1><%- question.title %> </h1>
             <p><%- question.desc %> </p>
             <hr>
+            <form action="/postanswer" method="POST">
+                <label>Answer:</label>
+                <textarea name="body" placeholder="Type your answer" class="form-control"></textarea>
+                <input type="hidden" name="question" value="<%- question.id %> ">
+                <button class="btn btn-primary mt-3">Send</button>
+            </form>
         </div>
 </body>
 <%- include ('partials/scripts') %>
