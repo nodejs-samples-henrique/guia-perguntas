@@ -11,15 +11,34 @@
     <%- include ('partials/navbar') %>
         <div class="container mt-5">
             <hr>
-            <h1><%- question.title %> </h1>
-            <p><%- question.desc %> </p>
+            <h1>
+                <%- question.title %>
+            </h1>
+            <p>
+                <%- question.desc %>
+            </p>
             <hr>
             <form action="/postanswer" method="POST">
                 <label>Answer:</label>
                 <textarea name="body" placeholder="Type your answer" class="form-control"></textarea>
                 <input type="hidden" name="question" value="<%- question.id %> ">
-                <button class="btn btn-primary mt-3">Send</button>
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-primary mt-3">Send</button>
+                </div>
+                
             </form>
+            <hr>
+            <h3>Answers</h3>
+            <hr>
+            <% answers.forEach(answer=> { %>
+                <div class="card mb-3">
+                    <div class="card-body bg-light">
+                        <p>
+                            <%- answer.body %>
+                        </p>
+                    </div>
+                </div>
+            <% }) %>
         </div>
 </body>
 <%- include ('partials/scripts') %>
