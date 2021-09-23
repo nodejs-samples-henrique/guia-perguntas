@@ -22,11 +22,11 @@ app.get("/", (req, res) => {
     })
 })
 
-app.get("/perguntar", (req, res) => {
+app.get("/ask", (req, res) => {
     res.render("ask")
 })
 
-app.get("/pergunta/:id", (req, res) => {
+app.get("/ask/:id", (req, res) => {
     Question.findOne({
         where: { id: req.params.id }
     }).then((question) => {
@@ -56,11 +56,11 @@ app.get("/pergunta/:id", (req, res) => {
 app.post("/postanswer", (req, res) => {
     console.log(req.body.questionId)
     Answer.create({ body: req.body.body, questionId: req.body.question }).then(() => {
-        res.redirect("/pergunta/" + req.body.question)
+        res.redirect("/ask/" + req.body.question)
     })
 })
 
-app.post("/criarpergunta", (req, res) => {
+app.post("/createquestion", (req, res) => {
 
     Question.create({ title: req.body.title, desc: req.body.description }).then(() => {
         res.redirect("/")
@@ -68,5 +68,5 @@ app.post("/criarpergunta", (req, res) => {
 })
 
 app.listen(8080, () => {
-    console.log("App rodando.")
+    console.log("App running.")
 })
