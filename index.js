@@ -1,6 +1,7 @@
 const express = require("express")
 const app = express()
 const Question = require('./database/Question')
+const Answer = require('./database/Answer')
 
 // EJS as View Engine
 app.set('view engine', 'ejs')
@@ -36,6 +37,13 @@ app.get("/pergunta/:id", (req, res) => {
         } else {
             res.redirect("/")
         }
+    })
+})
+
+app.post("/postanswer", (req, res) => {
+    console.log(req.body.questionId)
+    Answer.create({ body: req.body.body, questionId: req.body.question }).then(() => {
+        res.redirect("/pergunta/" + req.body.question)
     })
 })
 
